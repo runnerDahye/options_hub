@@ -1,0 +1,13 @@
+{
+  "name": "eugene-investment-demo",
+  "version": "1.0.0",
+  "description": "유진투자선물 데모 서버",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["demo", "server", "eugene-investment"],
+  "author": "",
+  "license": "MIT"
+}
