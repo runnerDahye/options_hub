@@ -3,42 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/pretendard.css">
     <title>유진투자선물</title>
 </head>
 <body>
     <header>
-        <h1 class="logo">유진투자선물</h1>
-        <button type="button">앱 다운로드 <i class="ico ico-download"></i></button>
+        <h1 class="logo"><a href="/"><img src="./img/logo.svg" alt="유진투자선물"></a></h1>
+        <a href="#" class="btn_download">앱 다운로드<i class="ico ico-download"></i></a>
     </header>
     <main>
         
-        <section class="section01">
+        <section class="section01 pin-section">
             <div id="containers" class="program_detail"></div>
-            <div class="container">asdfasdfasd</div>
+            <div class="container">
+                <div class="col">
+                    <div class="text">
+                        <h2 class="white">미국주식옵션 <br>매도가능.</h2>
+                        <h3 class="white">롱/숏 스프레드부터 아이언 콘도르까지.</h3>
+                        <div class="btn-wrap">
+                            <a href="" class="app-btn-ios">
+                                <i class="logo-ios"></i>
+                                <span>IOS<b>앱 다운로드</b></span>
+                            </a>
+                            <a href="" class="app-btn-android">
+                                <i class="logo-android"></i>
+                                <span>Android<b>앱 다운로드</b></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="image">
+                        <img src="./img/visual-phone01.png" alt="img01">
+                        <img src="./img/visual-phone02.png" alt="img02">
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="section02">
-
+        <section class="section02 pin-section">
+            <div id="containers02" class="program_detail"></div>
+            <div class="container">
+                <h2>그릭스 데이터 <br>실시간 제공.</h2>
+                <h3>미국 본토 증권사도 이용하는 <br>정교한 그릭스 데이터 제공.</h3>
+            </div>
         </section>
-        <section class="section03">
-
+        <section class="section03 pin-section">
+            <div class="container">
+                <h2>전 종목 5000+ <br>옵션 거래가능.</h2>
+                <p>거래 종목 찾기는 이제 그만. <br>실시간 시세로 모든 종목 거래가능.</p>
+            </div>
         </section>
         <section class="section04">
-
+            <div class="container">
+                <h2>오직 옵션 <br>거래만을 위한 <br>맞춤형 주문화면.</h2>
+                <h3>최대수익과 최대손실, <br>손익분기점 계산까지도 완벽하게.</h3>
+            </div>
         </section>
         <section class="section05">
-
+            xsdad
         </section>
     </main>
     <footer>
-
+        <p>투자 유의사항</p>
+        <ul>
+            <li>투자자는 금융투자상품에 대하여 금융회사로부터 충분한 설명을 받을 권리가 있으며, 투자전 상품설명서 등을 반드시 읽어보시기 바랍니다.</li>
+            <li>이 금융상품은 예금자보호법에 따라 보호되지 않습니다.</li>
+            <li>금융투자상품은 자산가격 변동, 환율 변동, 신용등급 하락 등에 따라 투자원금의 초과손실이 발생할 수 있으며, 그 손실은 투자자에게 귀속됩니다.</li>
+            <li>계좌 잔고가 유지증거금에 미달하는 경우 계약이 강제 청산될 수 있으니 유의하시기 바랍니다.</li>
+            <li>미국주식옵션 거래 시 계약당 수수료는 주식/ETF/XSP가 $1.25, SPX는 $2.49입니다.</li>
+        </ul>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
     <!-- 배경 효과 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js"></script>
 
+    <!-- GSAP ScrolllTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+
+    <script src="./js/script.js"></script>
+  
     <script id="vertexShader" type="x-shader/x-vertex">
         void main() {
             gl_Position = vec4( position, 1.0 );
@@ -53,7 +99,7 @@
         uniform vec2 resolution;
 
         const int   complexity      =3;    // More points of color.
-        const float fluid_speed     = 180.0;  // speed
+            const float fluid_speed     = 80.0;  // speed (더 빠르게)
         const float color_intensity = 1.3;  //intensity
 
         float random (in vec2 st) {
@@ -90,14 +136,14 @@
                 color_intensity
             );
 
-            // 색상 범위 지정 (68,91,255) -> (0,172,255)
-            vec3 minColor = vec3(68.0 / 255.0, 91.0 / 255.0, 1.0);
-            vec3 maxColor = vec3(0.05, 172.0 / 255.0, 1.0);
+            // 색상 범위 지정 - 푸른색 계열 (#30267E와 어울리는 색상)
+            vec3 minColor = vec3(0.0, 0.2, 0.5);    // 사이언 블루
+            vec3 maxColor = vec3(0.2, 0.5, 0.8);    // 밝은 사이언 블루
             
             // 색상을 minColor ~ maxColor 범위로 보정
             vec3 col = mix(minColor, maxColor, smoothstep(0.0, 1.0, baseColor));
 
-            gl_FragColor=vec4(col, 1.0);
+            gl_FragColor=vec4(col, 0.9);  // 투명도 0.8로 증가
         }
     </script>
     <script>
@@ -152,11 +198,123 @@
             render();
         }
 
-        function render() {
-            uniforms.time.value += 1.2;
-            renderer.render( scene, camera );
-        }
+            function render() {
+                uniforms.time.value += 0.8;  // 더 빠른 애니메이션
+                renderer.render( scene, camera );
+            }
     </script>
     <!-- //배경 효과 끝-->
+    
+    <!-- Section02용 Fragment Shader -->
+    <script id="fragmentShader02" type="x-shader/x-fragment">
+        #ifdef GL_ES
+        precision mediump float;
+        #endif
+        uniform float time;
+        uniform vec2 resolution;
+
+        const int   complexity      = 3;
+        const float fluid_speed     = 200.0;
+        const float color_intensity = 1.3;
+
+        float random (in vec2 st) {
+            return fract(sin(dot(st.xy,
+                                 vec2(12.9898,78.233)))
+                         * 43758.5453123);
+        }
+
+        void main(){
+            vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
+
+            float r = sqrt( dot( uv, uv ) );
+            for(int i=1;i<complexity;i++){
+                vec2 newUv = uv + time*0.013;
+
+                newUv.x+= 1.5/float(i) * 
+                          sin(float(i) * uv.y + time/fluid_speed) 
+                          + 1.0;
+                
+                newUv.y+= 1.4/float(i) * 
+                          cos(float(i) * uv.x + time/fluid_speed) 
+                          - 0.9;
+                uv=newUv;
+            }
+
+            // 기본 색상 계산
+            vec3 baseColor = vec3(
+                color_intensity * cos(uv.x) * 0.9,
+                color_intensity * sin(uv.x) * sqrt(cos(time * 0.01)),
+                color_intensity
+            );
+
+            // 하얀 배경과 어울리는 은은한 회색 계열
+            vec3 minColor = vec3(0.9, 0.9, 0.9);    // 밝은 회색
+            vec3 maxColor = vec3(0.7, 0.8, 0.9);    // 연한 파란 회색
+            
+            // 색상을 minColor ~ maxColor 범위로 보정
+            vec3 col = mix(minColor, maxColor, smoothstep(0.0, 1.0, baseColor));
+
+            gl_FragColor=vec4(col, 0.3);  // 매우 은은하게
+        }
+    </script>
+    
+    <!-- Section02 배경 패턴 -->
+    <script>
+        var container02;
+        var camera02, scene02, renderer02;
+        var uniforms02;
+
+        init02();
+        animate02();
+
+        function init02() {
+            container02 = document.getElementById('containers02');
+
+            camera02 = new THREE.Camera();
+            camera02.position.z = 1;
+
+            scene02 = new THREE.Scene();
+
+            var geometry02 = new THREE.PlaneBufferGeometry(2, 2);
+
+            uniforms02 = {
+                time: { type: "f", value: 2.0 },
+                resolution: { type: "v2", value: new THREE.Vector2() }
+            };
+
+            var material02 = new THREE.ShaderMaterial({
+                uniforms: uniforms02,
+                vertexShader: document.getElementById('vertexShader').textContent,
+                fragmentShader: document.getElementById('fragmentShader02').textContent
+            });
+
+            var mesh02 = new THREE.Mesh(geometry02, material02);
+            scene02.add(mesh02);
+
+            renderer02 = new THREE.WebGLRenderer();
+            renderer02.setPixelRatio(window.devicePixelRatio);
+
+            container02.appendChild(renderer02.domElement);
+
+            onWindowResize02();
+            window.addEventListener('resize', onWindowResize02, false);
+        }
+
+        function onWindowResize02() {
+            renderer02.setSize(window.innerWidth, window.innerHeight);
+            uniforms02.resolution.value.x = renderer02.domElement.width;
+            uniforms02.resolution.value.y = renderer02.domElement.height;
+        }
+
+        function animate02() {
+            requestAnimationFrame(animate02);
+            render02();
+        }
+
+        function render02() {
+            uniforms02.time.value += 0.3;
+            renderer02.render(scene02, camera02);
+        }
+    </script>
 </body>
 </html>

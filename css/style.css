@@ -3,6 +3,9 @@
    License: none (public domain)
 */
 
+/* reset */
+html {font-size: 16px;}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,6 +25,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: 'Pretendard', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -47,18 +51,48 @@ table {
 	border-spacing: 0;
 }
 
+* {box-sizing: border-box;}
+
+a {text-decoration: none; color: inherit;}
+
+/* common */
+:root {
+	--black: #1A2029;
+}
+
+.ico {display: block; width: 16px; height: 16px; background-color: var(--black);}
+.ico-download {mask:url(../img/ico-download.svg) no-repeat center center / contain; -webkit-mask:url(../img/ico-download.svg) no-repeat center center / contain;}
+
+/* header */
+header {position: absolute; top: 0; left: 0; z-index: 3; height: 120px; display: flex; padding: 0 40px; width: 100%; justify-content: space-between; align-items: center;}
+.btn_download {font-size: 1rem; width: 170px; height: 50px; background-color: #FFEB01; padding: 0 0.88rem; display: flex; align-items: center; justify-content: center; border-radius: 50px; color: var(--black); font-weight: 700; gap: 0 10px;}
+
 /* background effect */
-#containers.program_detail {position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: 1;}
+.program_detail {position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; opacity: .7; transform: scale(1.2);}
 
 /* main */
 main {overflow: hidden;}
-header {position: absolute; top: 0; left: 0; width: 100%; z-index: 3;}
+section {height: 100vh; position: relative;}
+section.section01 {background-color: #30267E; overflow: hidden;}
+section.section02 {background-color: #fff; overflow: hidden;}
+section.section02 .program_detail {display: none;}/*필요할 시 주석 해제*/
+section.section03 {background-color: #F3F7FA;}
+section.section04 {background-color: #fff;}
+section.section05 {background-color: #000; height: 700px;}
 
-section {min-height: 1000px; z-index: 2; position: relative; opacity: .7;}
-.section01 {background-color: #30267E;}
-.section02 {background-color: #fff;}
-.section03 {background-color: #F3F7FA;}
-.section04 {background-color: #fff;}
-.section05 {background-color: #000;}
+section .container {max-width: 1440px; width: 90%; margin:0 auto; position: relative; z-index: 2; height: 100%; display: flex; align-items: center;}
+section .container .col {display: flex; align-items: center; justify-content: space-between; width: 100%;}
+section .container .col h2 {font-size: 75px; font-weight: 700; line-height: 1.2;}
+section .container .col h3 {font-size: 32px; font-weight: 400; line-height: 1.5; padding-top: 40px;}
+section .container .col h2.white,
+section .container .col h3.white {color: #fff;}
+section .container .col .btn-wrap {padding-top: 120px;}
 
-section .inner {max-width: 1200px; width: 90%; margin:0 auto; position: relative;}
+.btn-wrap {display: flex; gap: 0 15px;}
+[class*="app-btn-"] {display: block; background-color: #fff; border-radius: 12px; max-width: 240px; width: 100%; min-height: 90px; padding: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 0 20px; font-size: 20px; font-weight: 400; line-height: 1.2; box-shadow: 0 4px 10px 0 rgba(0,0,0,0.25);}
+[class*="app-btn-"] b {display: block; font-weight: 700;}
+.app-btn-ios .logo-ios{width: 50px; height: 50px; background: url(../img/logo-ios.svg) no-repeat center center / cover;}
+.app-btn-android .logo-android{width: 50px; height: 50px; background: url(../img/logo-playstore.svg) no-repeat center center / cover;}
+
+/* footer */
+footer {background-color: #333; height: 400px;}
