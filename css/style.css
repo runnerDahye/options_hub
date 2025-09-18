@@ -58,13 +58,17 @@ a {text-decoration: none; color: inherit;}
 /* common */
 :root {
 	--black: #1A2029;
+	--text-primary: #191F28;
+	--text-secondary: #333D4B;
 }
 
 .ico {display: block; width: 16px; height: 16px; background-color: var(--black);}
 .ico-download {mask:url(../img/ico-download.svg) no-repeat center center / contain; -webkit-mask:url(../img/ico-download.svg) no-repeat center center / contain;}
 
 /* header */
-header {position: absolute; top: 0; left: 0; z-index: 3; height: 120px; display: flex; padding: 0 40px; width: 100%; justify-content: space-between; align-items: center;}
+header {position: fixed; top: 0; left: 0; z-index: 3; height: 120px; display: flex; padding: 0 40px; width: 100%; justify-content: space-between; align-items: center;}
+header .logo a {display: block; text-indent: -9999px; width: 369px; height: 50px; background: url(../img/logo.svg) no-repeat center center / contain;}
+header.bk .logo a {background: url(../img/logo_bk.svg) no-repeat center center / contain;}
 .btn_download {font-size: 1rem; width: 170px; height: 50px; background-color: #FFEB01; padding: 0 0.88rem; display: flex; align-items: center; justify-content: center; border-radius: 50px; color: var(--black); font-weight: 700; gap: 0 10px;}
 
 /* background effect */
@@ -81,18 +85,36 @@ section.section04 {background-color: #fff;}
 section.section05 {background-color: #000; height: 700px;}
 
 section .container {max-width: 1440px; width: 90%; margin:0 auto; position: relative; z-index: 2; height: 100%; display: flex; align-items: center;}
-section .container .col {display: flex; align-items: center; justify-content: space-between; width: 100%;}
-section .container .col h2 {font-size: 75px; font-weight: 700; line-height: 1.2;}
-section .container .col h3 {font-size: 32px; font-weight: 400; line-height: 1.5; padding-top: 40px;}
+section .container .col {display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 0 30px;}
+section .container .col h2 {font-size: 4.69rem; font-weight: 700; line-height: 1.2; color: var(--text-primary); letter-spacing: -0.02em;}
+section .container .col h3 {font-size: 2rem; font-weight: 400; line-height: 1.4; padding-top: 40px; color: var(--text-secondary); letter-spacing: -0.01em;}
 section .container .col h2.white,
 section .container .col h3.white {color: #fff;}
 section .container .col .btn-wrap {padding-top: 120px;}
 
+/* section01 */
+section.section01 .image {transform: translate(80px, 40px);}
+section.section01 .image img:first-child {position: relative; right: -30px;}
+
 .btn-wrap {display: flex; gap: 0 15px;}
-[class*="app-btn-"] {display: block; background-color: #fff; border-radius: 12px; max-width: 240px; width: 100%; min-height: 90px; padding: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 0 20px; font-size: 20px; font-weight: 400; line-height: 1.2; box-shadow: 0 4px 10px 0 rgba(0,0,0,0.25);}
+[class*="app-btn-"] {display: block; background-color: #fff; border-radius: 12px; max-width: 240px; width: 100%; min-height: 90px; padding: 0.88rem; display: flex; align-items: center; justify-content: center; gap: 0 20px; font-size: 1.25rem; font-weight: 400; line-height: 1.2; box-shadow: 0 4px 10px 0 rgba(0,0,0,0.25);}
 [class*="app-btn-"] b {display: block; font-weight: 700;}
 .app-btn-ios .logo-ios{width: 50px; height: 50px; background: url(../img/logo-ios.svg) no-repeat center center / cover;}
 .app-btn-android .logo-android{width: 50px; height: 50px; background: url(../img/logo-playstore.svg) no-repeat center center / cover;}
 
+/* sectrion02 */
+section.section02 .text {padding-right: 100px;}
+section.section02 .boxs {display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 20px;}
+section.section02 .boxs .box {background: blue; height: 300px; border-radius: 20px;}
+section.section02 .boxs .box p {font-weight: 600; font-size: 1.88rem; text-align: center; padding-top: 60px;}
+section.section02 .boxs .box p + p {padding-top: 10px; font-weight: 400; font-size: 1.06rem; line-height: 1.4;}
+section.section02 .boxs .box:nth-child(1) {background-color: #3721E5;}
+section.section02 .boxs .box:nth-child(2) {background-color: #F3F7FA;}
+section.section02 .boxs .box:nth-child(3) {background-color: #F3F7FA;}
+section.section02 .boxs .box:nth-child(4) {background-color: #4C5969;}
+
+section.section02 .boxs .box:nth-child(1) p,
+section.section02 .boxs .box:nth-child(4) p {color: #fff;}
+
 /* footer */
-footer {background-color: #333; height: 400px;}
+footer {background-color: #333;}
